@@ -6,7 +6,7 @@ std::string simple_yenc_decode(const std::string data)
 	try {
 		boost::smatch match;
 		const boost::regex pattern(
-			"=ybegin.*?\r\n(.*)\r\n=yend", 
+			"=ybegin.*?[\r\n]+(.*)[\r\n]+=yend", 
 			boost::regex_constants::icase
 		);
 
@@ -17,11 +17,8 @@ std::string simple_yenc_decode(const std::string data)
 
 	if (encodedYenc != "") {
 		for (unsigned long i = 0; i < encodedYenc.length(); i++) {
-			if (encodedYenc[i] == '\r') {
-				if (encodedYenc[i] + 2 == '.') {
-					i++;
-				}
-				i++;
+			if (encodedYenc[i] == '\r' || encodedYenc[i] == '\n') {
+				continue;
 			} else if (encodedYenc[i] == '=') {
 				i++;
 				decodedYenc += ((encodedYenc[i] + 150) % 256);

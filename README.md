@@ -17,13 +17,24 @@ it makes it easier for them.
 
 ### Included binary:
 
-The included binary was compiled on ubuntu 14.04 x64, no guaranties it will work
+The included binary was compiled on ubuntu 13.04 x64, no guaranties it will work
 on any other linux distro. If you have a windows binary, send a pull request and
 I will add it to the binaries folder.
+
+YOU NEED libboost-regex-dev TO USE THIS BINARY (minimum version 1.53, since it was compiled with that).
 
 To download the included binary on linux:
 
 `wget https://github.com/kevinlekiller/simple_php_yenc_decode/raw/master/binaries/linux/simple_php_yenc_decode.so`
+
+### Requirements:
+
+Boost regex is required for compiling
+
+On ubuntu:
+
+libboost-regex-dev
+(depends on libboost-regex and libboost-dev)
 
 ### Compilation:
 
@@ -39,11 +50,11 @@ For the rest, only boost regex is required, my g++ is 4.8.2 for reference and bo
 
 ``g++ `php-config5 --includes` -fpic -c yenc_decode_wrap.cpp``
 
-`g++ -fpic -c php_yenc.cpp -lboost_regex`
+`g++ -fpic -c yenc_decode.cpp -lboost_regex`
 
 Change this last line based on your OS (.dll instead of .so for windows for example).
 
-`g++ -shared *.o -o php_yenc.so -lboost_regex`
+`g++ -shared *.o -o simple_php_yenc_decode.so -lboost_regex`
 
 ### Installation:
 
