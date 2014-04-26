@@ -1,5 +1,4 @@
 #include <iostream>
-#include <fstream>
 #include <boost/regex.hpp>
 /**
  * Decodes a yEnc string, ignores all yEnc checks (length/crc32/etc).
