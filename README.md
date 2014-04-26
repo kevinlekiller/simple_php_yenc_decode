@@ -70,7 +70,6 @@ extension=simple_php_yenc_decode.so
 ### Example:
 
 The example (test.php) checks if you have the extension loaded, then it tries to decode
-the file called yEnc.txt which is a wikipedia HTML page encoded with yEnc.
-
-If you see the HTML output, then it worked.
+the file called yEnc.zip.yEnc which is a zip file encoded with yEnc, the zip contains a wikipedia HTML page,
+you can extract the zip and run this HTML page in a browser if you want to see if it is successful.
 
