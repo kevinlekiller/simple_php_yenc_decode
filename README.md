@@ -10,7 +10,7 @@ partial yEnc articles from usenet, where the yEnc checks are not needed.
 
 If the method fails or if the string is not yEnc, an empty string is returned.
 
-Boost regex is used gcc and g++'s regex are not working until 4.9 (currently 4.7/4.8 are the popular versions).
+Boost regex is used, because gcc and g++'s regex are not working until 4.9 (currently 4.7/4.8 are the popular versions).
 
 ### Requirements:
 
@@ -56,14 +56,14 @@ On ubuntu the CLI php.ini is here: /etc/php5/cli/php.ini
 
 In the Dynamic Extensions part of the ini, add the extension:
 
-At this point you have 2 choices, you can set the default location where extensions are loaded
-to the folder we created above, or you can load the full path to the extension.
+(At this point you have 2 choices, you can set the default location where extensions are loaded
+to the folder we created above, or you can load the full path to the extension.)
 
-This is the full path:
+This is the full path (if you did not set the default extension path):
 
 extension=/usr/lib/php5/extensions/simple_php_yenc_decode.so
 
-If you set the default location:
+If you set the default extension path:
 
 extension=simple_php_yenc_decode.so
 
