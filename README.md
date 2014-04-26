@@ -23,6 +23,8 @@ libboost-regex-dev
 
 ### Compilation:
 
+On Ubuntu you can run sh ubuntu.sh
+
 Swig is not required, since I offer the swig output files with the source, but
 if you want to create the swig output files, I used swig 2.0, this was the command:
 
