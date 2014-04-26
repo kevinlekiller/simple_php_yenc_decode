@@ -10,26 +10,11 @@ partial yEnc articles from usenet, where the yEnc checks are not needed.
 
 If the method fails or if the string is not yEnc, an empty string is returned.
 
-Boost regex is used since it's easier to get working on windows than g++
-and gcc's regex is not working until 4.9 (currently 4.7/4.8 are the popular versions).
-Not that I'm compiling on windows, but if someone were to compile on windows,
-it makes it easier for them.
-
-### Included binary:
-
-The included binary was compiled on ubuntu 13.04 x64, no guaranties it will work
-on any other linux distro. If you have a windows binary, send a pull request and
-I will add it to the binaries folder.
-
-YOU NEED libboost-regex-dev TO USE THIS BINARY (minimum version 1.53, since it was compiled with that).
-
-To download the included binary on linux:
-
-`wget https://github.com/kevinlekiller/simple_php_yenc_decode/raw/master/binaries/linux/simple_php_yenc_decode.so`
+Boost regex is used gcc and g++'s regex are not working until 4.9 (currently 4.7/4.8 are the popular versions).
 
 ### Requirements:
 
-Boost regex is required for compiling
+Boost regex is required for compiling (1.53, 1.54, 1.55 tested).
 
 On ubuntu:
 
@@ -38,15 +23,12 @@ libboost-regex-dev
 
 ### Compilation:
 
-The binary was compiled in ubuntu 13.04 x64, as long as you have all the requirements
-you can compile on any operating system.
-
 Swig is not required, since I offer the swig output files with the source, but
 if you want to create the swig output files, I used swig 2.0, this was the command:
 
 `swig -php -c++ yenc_decode.i`
 
-For the rest, only boost regex is required, my g++ is 4.8.2 for reference and boost regex is 1.55:
+For the rest, only boost regex is required, my g++ is 4.8.2 for reference and boost regex is 1.55 (successful on 1.53 and 1.54):
 
 ``g++ `php-config5 --includes` -fpic -c yenc_decode_wrap.cpp``
 
@@ -58,9 +40,7 @@ Change this last line based on your OS (.dll instead of .so for windows for exam
 
 ### Installation:
 
-If you compiled, you end up with a .so or .dll file.
-
-You can also download a pre-made binary for linux (see the Included Binary section).
+After compiling you end up with a .so or .dll file.
 
 My php.ini didn't have a default "extensions" dir,
 
