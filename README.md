@@ -38,7 +38,7 @@ libboost-regex-dev
 
 ### Compilation:
 
-I've compiled the binary in ubuntu 14.04 x64, as long as you have all the requirements
+The binary was compiled in ubuntu 13.04 x64, as long as you have all the requirements
 you can compile on any operating system.
 
 Swig is not required, since I offer the swig output files with the source, but
