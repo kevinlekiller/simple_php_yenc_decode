@@ -17,7 +17,7 @@ if [ ! -e yenc_decode.o ]; then
 fi
  
 PHP_API=`php-config --phpapi`
-EXTENSIONS=/usr/lib/php5/${PHP_API}
+EXTENSIONS="/usr/lib/php5/${PHP_API}"
  
 if [ ! -e ${EXTENSIONS} ]; then
     echo "Error locating extensions directory ${EXTENSIONS}!"
@@ -30,7 +30,9 @@ if [ ! -e ${EXTENSIONS}/simple_php_yenc_decode.so ]; then
     echo "Error creating ${EXTENSIONS}/simple_php_yenc_decode.so!"
 else
     echo "Compiled successfully!"
-    sudo echo "extension=${EXTENSION}/simple_php_yenc_decode.so" > ./simple_php_yenc_decode.ini
+    sudo echo "extension=${EXTENSIONS}/simple_php_yenc_decode.so" > ./simple_php_yenc_decode.ini
     sudo cp -u ./simple_php_yenc_decode.ini /etc/php5/mods-available/
-    sudo ln -s /etc/php5/mods-available/simple_php_yenc_decode.ini /etc/php5/cli/conf.d/simple_php_yenc_decode.ini
+    if [ ! -e /etc/php5/cli/conf.d/simple_php_yenc_decode.ini ]; then
+        sudo ln -s /etc/php5/mods-available/simple_php_yenc_decode.ini /etc/php5/cli/conf.d/simple_php_yenc_decode.ini
+    fi
 fi
