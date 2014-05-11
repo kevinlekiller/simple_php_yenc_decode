@@ -29,10 +29,18 @@ sudo g++ -shared *.o -o ${EXTENSIONS}/simple_php_yenc_decode.so -lboost_regex
 if [ ! -e ${EXTENSIONS}/simple_php_yenc_decode.so ]; then
     echo "Error creating ${EXTENSIONS}/simple_php_yenc_decode.so!"
 else
-    echo "Compiled successfully!"
+    echo "The extension was compiled successfully."
     sudo echo "extension=${EXTENSIONS}/simple_php_yenc_decode.so" > ./simple_php_yenc_decode.ini
     sudo cp -u ./simple_php_yenc_decode.ini /etc/php5/mods-available/
     if [ ! -e /etc/php5/cli/conf.d/simple_php_yenc_decode.ini ]; then
         sudo ln -s /etc/php5/mods-available/simple_php_yenc_decode.ini /etc/php5/cli/conf.d/simple_php_yenc_decode.ini
+        if [ ! -e /etc/php5/cli/conf.d/simple_php_yenc_decode.ini ]; then
+            echo "There was a problem moving the ini file (used to load to extension) to /etc/php5/mods-available/"
+        else
+            echo "PHP has been succesfully set up to load the extension."
+            echo "All done!"
+        fi
+    else
+        echo "There was an error creating the ini file to load the extension!"
     fi
 fi
