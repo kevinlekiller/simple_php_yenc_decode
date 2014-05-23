@@ -1,6 +1,6 @@
 #!/bin/sh
  
-sudo apt-get install libboost-regex-dev -y
+sudo apt-get install libboost-regex-dev g++ -y
  
 g++ `php-config5 --includes` -fpic -c source/yenc_decode_wrap.cpp
  
