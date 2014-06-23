@@ -42,6 +42,15 @@ Change this last line based on your OS (.dll instead of .so for windows for exam
 
 `g++ -shared *.o -o simple_php_yenc_decode.so -lboost_regex`
 
+---
+If you get this error:  
+``/usr/bin/ld: yenc_decode_wrap.o: relocation R_X86_64_32S against `.rodata' can not be used when making a shared object; recompile with -fPIC``
+
+Run this command:  
+`export CXX=”g++ -fPIC”`
+
+And rerun the 3 compilation commands above.
+
 ### Installation:
 
 After compiling you end up with a .so or .dll file.
