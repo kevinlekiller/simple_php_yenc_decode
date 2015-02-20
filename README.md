@@ -25,6 +25,8 @@ libboost-regex-dev
 
 On Ubuntu you can run sh ubuntu.sh
 
+On Arch Linux, sh arch.sh
+
 For other operating systems you can follow these instructions:
 
 Swig is not required, since I offer the swig output files with the source, but
