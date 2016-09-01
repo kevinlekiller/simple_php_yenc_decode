@@ -6,14 +6,14 @@ std::string simple_yenc_decode(const std::string data)
 	try {
 		boost::smatch match;
 		const boost::regex pattern(
-			"^.*y(part|begin).+?[\r\n](.+)[\r\n]{1,2}",
+			"^.*y(part|begin).+?[\r\n](.+)[\r\n]{1,2}=yend",
 			boost::regex::icase
 		);
 
 		if (boost::regex_search (data, match, pattern)) {
 			encodedYenc = match[2];
 		}
-	} catch (boost::regex_error& e) {}
+	} catch(...) {}
 
 	if (encodedYenc != "") {
 		for (unsigned long i = 0; i < encodedYenc.length(); i++) {
